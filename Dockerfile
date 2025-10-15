@@ -9,7 +9,7 @@ COPY . .
 
 COPY mvnw .
 COPY .mvn .mvn
-copy pom.xml
+COPY pom.xml
 
 
 RUN chmod +x mvnw
