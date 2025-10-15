@@ -7,4 +7,4 @@ services:
     startCommand: java -jar target/demo-0.0.1-SNAPSHOT.jar
     envVars:
       - key: SPRING_DATA_MONGODB_URI
-        value: your-mongodb-connection-string-here
+        value: mongodb+srv://dhionisharulraj_db_user:dhio1234D@studentdbcluster.qackakx.mongodb.net/
