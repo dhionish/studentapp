@@ -1,5 +1,5 @@
 # Use a lightweight Java 17 image
-FROM ghcr.io/adoptium/temurin:17-jdk-slim
+FROM adoptium/temurin:17-jdk-slim
 
 # Set working directory inside the container
 WORKDIR /app
