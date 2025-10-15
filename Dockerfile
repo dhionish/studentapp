@@ -7,7 +7,15 @@ WORKDIR /app
 # Copy everything from your project into the container
 COPY . .
 
+COPY mvnw .
+COPY .mvn .mvn
+copy pom.xml
+
+
 RUN chmod +x mvnw
+
+RUN ./mvnw dependency:go-offline -B
+COPY src ./src
 
 # Build the project using Maven wrapper
 RUN ./mvnw clean package -DskipTests
