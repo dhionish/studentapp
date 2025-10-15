@@ -37,6 +37,20 @@
 				<button type="button" class="btn-close"></button>
 			</div>
 		</div>
+		<form class="d-flex mb-3" th:action="@{/viewstudents}" method="get">
+		    <input class="form-control me-2" type="text" placeholder="Search by name" name="keyword" th:value="${keyword}">
+		    <button class="btn btn-outline-success" type="submit">Search</button>
+		</form>
+		<form class="d-flex mb-3" th:action="@{/viewstudents}" method="get">
+		    <input class="form-control me-2" type="text" placeholder="Search by name" name="keyword" th:value="${keyword}">
+		    <select class="form-select me-2" name="course">
+		        <option value="">All Courses</option>
+		        <option value="Java">Java</option>
+		        <option value="MongoDB">MongoDB</option>
+		        <option value="Spring">Spring</option>
+		    </select>
+		    <button class="btn btn-outline-success" type="submit">Filter</button>
+		</form>
 	    <table class="table table-bordered table-hover">
 	        <thead class="table-dark">
 	            <tr>

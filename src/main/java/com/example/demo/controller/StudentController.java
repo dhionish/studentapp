@@ -18,10 +18,24 @@ public class StudentController {
 
     // 🟢 View all students
     @GetMapping("/viewstudents")
-    public String viewStudents(Model model) {
-        List<Student> students = studentRepository.findAll();
+    public String viewStudents(@RequestParam(required = false) String keyword, Model model,String course) {
+        List<Student> students= studentRepository.findAll();
+        if (keyword != null && !keyword.isEmpty()) {
+            students = students.stream()
+                .filter(s -> s.getName().toLowerCase().contains(keyword.toLowerCase()))
+                .toList();
+        } 
+        
+        if (course != null && !course.isEmpty()) {
+            students = students.stream()
+                .filter(s -> s.getCourse().equalsIgnoreCase(course))
+                .toList();
+        } 
+        
         model.addAttribute("students", students);
-        return "students"; // students.html
+        model.addAttribute("keyword", keyword);
+        model.addAttribute("course", course);
+        return "students";
     }
 
     // 🟢 Show add student form
