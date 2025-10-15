@@ -1,11 +1,13 @@
 # Use a lightweight Java 17 image
-FROM eclipse-temurin:17-jdk-alpine
+FROM eclipse-temurin:17-jdk-slim
 
 # Set working directory inside the container
 WORKDIR /app
 
 # Copy everything from your project into the container
 COPY . .
+
+RUN chmod +x mvnw
 
 # Build the project using Maven wrapper
 RUN ./mvnw clean package -DskipTests
